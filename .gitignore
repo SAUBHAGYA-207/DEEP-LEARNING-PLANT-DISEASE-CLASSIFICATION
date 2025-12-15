@@ -1,1 +1,4 @@
 image data
+# Ignore dataset zip
+archive (2).zip
+*.zip
