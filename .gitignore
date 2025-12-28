@@ -2,3 +2,10 @@ image data
 # Ignore dataset zip
 archive (2).zip
 *.zip
+image data - Copy
+# ML models
+*.h5
+*.keras
+*.pt
+*.onnx
+models/
