@@ -39,9 +39,10 @@ st.success("Model loaded successfully!")
 
 uploaded_file = st.file_uploader("Select Your Sample",type=["jpg", "png", "jpeg"])
 if uploaded_file is not None:
-    st.image(uploaded_file, caption="Uploaded Sample", use_container_width=True)
     progress_text = "Processing image..."
     my_bar = st.progress(0, text=progress_text)
+    st.image(uploaded_file, caption="Uploaded Sample", use_container_width=True)
+   
     img=prepare_single_image(uploaded_file)
     my_bar.progress(30, text="Image preprocessed")
 
@@ -63,8 +64,16 @@ if uploaded_file is not None:
     my_bar.progress(100, text="Finalizing results")
     time.sleep(0.5)
     my_bar.empty()
-    st.markdown(f"Our Model detected the sample to be {plant_name} with {plant_conf:.2%} confidence")
-    st.markdown(f"Our Model detected the sample to be {disease_name} with {disease_conf:.2%} confidence")
+    st.markdown(
+    f"Our Model detected the sample to be :green[{plant_name}] "
+    f"with {plant_conf:.2%} confidence"
+    )
+
+    st.markdown(
+        f"Our Model detected the sample to be :red[{disease_name}] "
+        f"with {disease_conf:.2%} confidence"
+    )
+
 
 
 
